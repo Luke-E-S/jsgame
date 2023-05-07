@@ -1,16 +1,32 @@
 <script>
     function getComputerChoice() {
-        const randomNumber = Math.floor(Math.random() * 3);
+        const randomNumber = Math.floor(Math.random() * 3 + 1);
 
-        if (randomNumber === 0) {
+        if (randomNumber === 1) {
             return "Rock";
         }
-        else if (randomNumber === 1) {
+        else if (randomNumber === 2) {
             return "Paper";
         }
-        else if (randomNumber === 2) {
+        else if (randomNumber === 3) {
             return "Scissors";
         }
     }
+
+    function getPlayerChoice() {
+        const choice = parseInt(prompt("Enter 1 for Rock, 2 for Paper, 3 for Scissors"));
+
+        if (choice === 1) {
+            return "Rock";
+        }
+        else if (choice === 2) {
+            return "Paper";
+        }
+        else if (choice === 3) {
+            return "Scissors";
+        }
+    }
+
+    console.log(getPlayerChoice());
     console.log(getComputerChoice());
 </script>
