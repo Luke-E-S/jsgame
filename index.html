@@ -28,8 +28,11 @@
     }
 
     function getWinner(computer, player) {
-        if (computer === "Rock") {
-            console.log("Computer chose '" + computer + "'");
+        console.log("The Computer chose '" + computer + "'");
+        console.log("The Player chose '" + player + "'");
+        
+        if (computer === player) {
+            console.log("The game has ended in a Draw!");
         }
 
         return 0;
