@@ -32,24 +32,22 @@
         console.log("The Player chose '" + player + "'");
         
         if (computer === player) {
-            console.log("The game has ended in a Draw!");
+            return("The game has ended in a Draw!");
         }
         else if (computer === "Rock" && player === "Scissors") {
-            console.log("The Computer has won this round!");
+            return("The Computer has won this round!");
         }
         else if (computer === "Paper" && player === "Rock") {
-            console.log("The Computer has won this round!");
+            return("The Computer has won this round!");
         }
         else if (computer === "Scissors" && player === "Paper") {
-            console.log("The Computer has won this round!");
+            return("The Computer has won this round!");
         }
         else {
-            console.log("CONGRATULATIONS YOU WIN!");
+            return("CONGRATULATIONS YOU WIN!");
         }
-
-        return 0;
     }
-    getWinner(getComputerChoice(), getPlayerChoice());
+    console.log(getWinner(getComputerChoice(), getPlayerChoice()));
 
 
 </script>
