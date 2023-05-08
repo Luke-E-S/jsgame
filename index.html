@@ -27,20 +27,20 @@
         }
     }
 
-    function getWinner(computer, player) {
-        console.log("The Computer chose '" + computer + "'");
-        console.log("The Player chose '" + player + "'");
+    function getWinner(computerSelection, playerSelection) {
+        console.log("The Computer chose '" + computerSelection + "'");
+        console.log("The playerSelection chose '" + playerSelection + "'");
         
-        if (computer === player) {
+        if (computerSelection === playerSelection) {
             return("The game has ended in a Draw!");
         }
-        else if (computer === "Rock" && player === "Scissors") {
+        else if (computerSelection === "Rock" && playerSelection === "Scissors") {
             return("The Computer has won this round!");
         }
-        else if (computer === "Paper" && player === "Rock") {
+        else if (computerSelection === "Paper" && playerSelection === "Rock") {
             return("The Computer has won this round!");
         }
-        else if (computer === "Scissors" && player === "Paper") {
+        else if (computerSelection === "Scissors" && playerSelection === "Paper") {
             return("The Computer has won this round!");
         }
         else {
