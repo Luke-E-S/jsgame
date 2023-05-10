@@ -12,15 +12,18 @@
             const paper = document.createElement("button");
             const scissors = document.createElement("button");
             const displayChoices = document.createElement("p");
+
+            let currentScore = 0;
+            let currentRound = 0;
         
             rock.textContent = "Rock";
             paper.textContent = "Paper";
             scissors.textContent = "Scissors";
 
 
-            rock.addEventListener("click", () => { getWinner(getComputerChoice(), "Rock") });
-            paper.addEventListener("click", () => { getWinner(getComputerChoice(), "Paper") });
-            scissors.addEventListener("click", () => { getWinner(getComputerChoice(), "Scissors") });
+            rock.addEventListener("click", () => { getRoundWinner(getComputerChoice(), "Rock") });
+            paper.addEventListener("click", () => { getRoundWinner(getComputerChoice(), "Paper") });
+            scissors.addEventListener("click", () => { getRoundWinner(getComputerChoice(), "Scissors") });
 
             document.body.style.textAlign = "center";
         
@@ -43,7 +46,7 @@
                 }
             }
         
-            function getWinner(computerSelection, playerSelection) {
+            function getRoundWinner(computerSelection, playerSelection) {
                 displayChoices.textContent = "The Computer chose '" + computerSelection +
                 "' and " + "the Player chose '" + playerSelection + "'";
 
