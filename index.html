@@ -21,6 +21,8 @@
             rock.addEventListener("click", () => { getWinner(getComputerChoice(), "Rock") });
             paper.addEventListener("click", () => { getWinner(getComputerChoice(), "Paper") });
             scissors.addEventListener("click", () => { getWinner(getComputerChoice(), "Scissors") });
+
+            document.body.style.textAlign = "center";
         
             document.body.appendChild(rock);
             document.body.appendChild(paper);
