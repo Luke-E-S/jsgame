@@ -60,10 +60,11 @@
                 displayRound.textContent = "End of Round #" + currentRound;
             }
             function endGame() {
-
+                
             }
             function resetGame() {
-                
+                currentRound = 0;
+                currentScore = 0;
             }
             function setWinnerText(winner) {
                 if (winner === "Draw") {
