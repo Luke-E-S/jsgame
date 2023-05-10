@@ -12,6 +12,7 @@
             const paper = document.createElement("button");
             const scissors = document.createElement("button");
             const displayChoices = document.createElement("p");
+            const displayWinner = document.createElement("p");
 
             let currentScore = 0;
             let currentRound = 0;
@@ -31,6 +32,7 @@
             document.body.appendChild(paper);
             document.body.appendChild(scissors);
             document.body.appendChild(displayChoices);
+            document.body.appendChild(displayWinner);
         
             function getComputerChoice() {
                 const randomNumber = Math.floor(Math.random() * 3 + 1);
@@ -45,28 +47,33 @@
                     return "Scissors";
                 }
             }
+            function setWinnerText(winner) {
+                if (winner === "Draw") {
+                    displayWinner.textContent = "Unfortunately this round was a " + winner + "!";
+                }
+                else {
+                    displayWinner.textContent = "The winner of this round goes to. The " + winner + "!";
+                }
+            }
         
             function playRound(computerSelection, playerSelection) {
                 displayChoices.textContent = "The Computer chose '" + computerSelection +
                 "' and " + "the Player chose '" + playerSelection + "'";
-
-                console.log("The Computer chose '" + computerSelection + "'");
-                console.log("The Player chose '" + playerSelection + "'");
                 
                 if (computerSelection === playerSelection) {
-                    return 0;
+                    setWinnerText("Draw");
                 }
                 else if (computerSelection === "Rock" && playerSelection === "Scissors") {
-                    return 1;
+                    setWinnerText("Computer");
                 }
                 else if (computerSelection === "Paper" && playerSelection === "Rock") {
-                    return 1;
+                    setWinnerText("Computer");
                 }
                 else if (computerSelection === "Scissors" && playerSelection === "Paper") {
-                    return 1;
+                    setWinnerText("Computer");
                 }
                 else {
-                    return 2;
+                    setWinnerText("Player");
                 }
             }        
         
