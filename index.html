@@ -30,10 +30,9 @@
             paper.addEventListener("click", () => { playRound(getComputerChoice(), "Paper") });
             scissors.addEventListener("click", () => { playRound(getComputerChoice(), "Scissors") });
             resetButton.addEventListener("click", resetGame);
-
+    
             document.body.style.textAlign = "center";
-        
-            
+                    
             document.body.appendChild(resetButton);
             document.body.appendChild(rock);
             document.body.appendChild(paper);
@@ -71,14 +70,15 @@
                 }
             }
             function endGame() {
+                displayRound.style.color = "red";
                 if (currentScore > 0) {
-                    displayRound.textContent = "The Player has won the GAME!";
+                    displayRound.textContent = "GAMEOVER - The Player has won the GAME!";
                 }
                 else if (currentScore < 0) {
-                    displayRound.textContent = "The Computer has won the GAME!";
+                    displayRound.textContent = "GAMEOVER - The Computer has won the GAME!";
                 }
                 else {
-                    displayRound.textContent = "The game has ended in a DRAW!";
+                    displayRound.textContent = "GAMEOVER - The game has ended in a DRAW!";
                 }
                 resetButton.hidden = false;
                 rock.hidden = true;
@@ -86,6 +86,7 @@
                 scissors.hidden = true;
             }
             function resetGame() {
+                displayRound.style.color = "black";
                 currentRound = 0;
                 currentScore = 0;
                 displayRound.textContent = "";
