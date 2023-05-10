@@ -11,10 +11,12 @@
             const rock = document.createElement("button");
             const paper = document.createElement("button");
             const scissors = document.createElement("button");
+            const displayChoices = document.createElement("p");
         
             rock.textContent = "Rock";
             paper.textContent = "Paper";
             scissors.textContent = "Scissors";
+
 
             rock.addEventListener("click", () => { getWinner(getComputerChoice(), "Rock") });
             paper.addEventListener("click", () => { getWinner(getComputerChoice(), "Paper") });
@@ -23,6 +25,7 @@
             document.body.appendChild(rock);
             document.body.appendChild(paper);
             document.body.appendChild(scissors);
+            document.body.appendChild(displayChoices);
         
             function getComputerChoice() {
                 const randomNumber = Math.floor(Math.random() * 3 + 1);
@@ -52,6 +55,9 @@
             }
         
             function getWinner(computerSelection, playerSelection) {
+                displayChoices.textContent = "The Computer chose '" + computerSelection +
+                "' and " + "the Player chose '" + playerSelection + "'";
+
                 console.log("The Computer chose '" + computerSelection + "'");
                 console.log("The Player chose '" + playerSelection + "'");
                 
