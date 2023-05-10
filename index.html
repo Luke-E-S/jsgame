@@ -14,6 +14,7 @@
             const displayChoices = document.createElement("p");
             const displayWinner = document.createElement("p");
             const displayRound = document.createElement("p");
+            const resetButton = document.createElement("button");
 
             let currentScore = 0;
             let currentRound = 0;
@@ -21,14 +22,19 @@
             rock.textContent = "Rock";
             paper.textContent = "Paper";
             scissors.textContent = "Scissors";
+            resetButton.textContent = "Reset Game";
+            resetButton.hidden = true;
 
 
             rock.addEventListener("click", () => { playRound(getComputerChoice(), "Rock") });
             paper.addEventListener("click", () => { playRound(getComputerChoice(), "Paper") });
             scissors.addEventListener("click", () => { playRound(getComputerChoice(), "Scissors") });
+            resetButton.addEventListener("click", resetGame);
 
             document.body.style.textAlign = "center";
         
+            
+            document.body.appendChild(resetButton);
             document.body.appendChild(rock);
             document.body.appendChild(paper);
             document.body.appendChild(scissors);
@@ -57,14 +63,38 @@
             }
             function updateRound() {
                 currentRound++;
-                displayRound.textContent = "End of Round #" + currentRound;
+                if (currentRound > 4){
+                    endGame();
+                }
+                else {
+                    displayRound.textContent = "End of Round #" + currentRound;
+                }
             }
             function endGame() {
-                
+                if (currentScore > 0) {
+                    displayRound.textContent = "The Player has won the GAME!";
+                }
+                else if (currentScore < 0) {
+                    displayRound.textContent = "The Computer has won the GAME!";
+                }
+                else {
+                    displayRound.textContent = "The game has ended in a DRAW!";
+                }
+                resetButton.hidden = false;
+                rock.hidden = true;
+                paper.hidden = true;
+                scissors.hidden = true;
             }
             function resetGame() {
                 currentRound = 0;
                 currentScore = 0;
+                displayRound.textContent = "";
+                displayWinner.textContent = "";
+                displayChoices.textContent = "";
+                resetButton.hidden = true;
+                rock.hidden = false;
+                paper.hidden = false;
+                scissors.hidden = false;
             }
             function setWinnerText(winner) {
                 if (winner === "Draw") {
