@@ -13,8 +13,12 @@
             const scissors = document.createElement("button");
         
             rock.textContent = "Rock";
+            paper.textContent = "Paper";
+            scissors.textContent = "Scissors";
         
             document.body.appendChild(rock);
+            document.body.appendChild(paper);
+            document.body.appendChild(scissors);
         
             function getComputerChoice() {
                 const randomNumber = Math.floor(Math.random() * 3 + 1);
