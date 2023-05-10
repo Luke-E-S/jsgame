@@ -17,7 +17,8 @@
             scissors.textContent = "Scissors";
 
             rock.addEventListener("click", () => { getWinner(getComputerChoice(), "Rock") });
-            
+            paper.addEventListener("click", () => { getWinner(getComputerChoice(), "Paper") });
+            scissors.addEventListener("click", () => { getWinner(getComputerChoice(), "Scissors") });
         
             document.body.appendChild(rock);
             document.body.appendChild(paper);
@@ -52,7 +53,7 @@
         
             function getWinner(computerSelection, playerSelection) {
                 console.log("The Computer chose '" + computerSelection + "'");
-                console.log("The playerSelection chose '" + playerSelection + "'");
+                console.log("The Player chose '" + playerSelection + "'");
                 
                 if (computerSelection === playerSelection) {
                     return 0;
