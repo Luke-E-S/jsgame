@@ -13,6 +13,7 @@
             const scissors = document.createElement("button");
             const displayChoices = document.createElement("p");
             const displayWinner = document.createElement("p");
+            const displayRound = document.createElement("p");
 
             let currentScore = 0;
             let currentRound = 0;
@@ -20,6 +21,7 @@
             rock.textContent = "Rock";
             paper.textContent = "Paper";
             scissors.textContent = "Scissors";
+            displayRound.textContent = "Round #" + currentRound;
 
 
             rock.addEventListener("click", () => { playRound(getComputerChoice(), "Rock") });
@@ -33,6 +35,7 @@
             document.body.appendChild(scissors);
             document.body.appendChild(displayChoices);
             document.body.appendChild(displayWinner);
+            document.body.appendChild(displayRound);
         
             function getComputerChoice() {
                 const randomNumber = Math.floor(Math.random() * 3 + 1);
@@ -46,6 +49,16 @@
                 else if (randomNumber === 3) {
                     return "Scissors";
                 }
+            }
+            function increaseScore() {
+                currentScore++;
+            }
+            function decreaseScore() {
+                currentScore--;
+            }
+            function updateRound() {
+                currentRound++;
+                displayRound.textContent = "Round #" + currentRound;
             }
             function setWinnerText(winner) {
                 if (winner === "Draw") {
@@ -65,16 +78,21 @@
                 }
                 else if (computerSelection === "Rock" && playerSelection === "Scissors") {
                     setWinnerText("Computer");
+                    decreaseScore();
                 }
                 else if (computerSelection === "Paper" && playerSelection === "Rock") {
                     setWinnerText("Computer");
+                    decreaseScore();
                 }
                 else if (computerSelection === "Scissors" && playerSelection === "Paper") {
                     setWinnerText("Computer");
+                    decreaseScore();
                 }
                 else {
                     setWinnerText("Player");
+                    increaseScore();
                 }
+                updateRound();
             }        
         
         </script>
