@@ -15,6 +15,9 @@
             rock.textContent = "Rock";
             paper.textContent = "Paper";
             scissors.textContent = "Scissors";
+
+            rock.addEventListener("click", () => { getWinner(getComputerChoice(), "Rock") });
+            
         
             document.body.appendChild(rock);
             document.body.appendChild(paper);
@@ -34,8 +37,7 @@
                 }
             }
         
-            function getPlayerChoice() {
-                const choice = parseInt(prompt("Enter 1 for Rock, 2 for Paper, 3 for Scissors"));
+            function getPlayerChoice(choice) {
         
                 if (choice === 1) {
                     return "Rock";
