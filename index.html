@@ -21,9 +21,9 @@
             scissors.textContent = "Scissors";
 
 
-            rock.addEventListener("click", () => { getRoundWinner(getComputerChoice(), "Rock") });
-            paper.addEventListener("click", () => { getRoundWinner(getComputerChoice(), "Paper") });
-            scissors.addEventListener("click", () => { getRoundWinner(getComputerChoice(), "Scissors") });
+            rock.addEventListener("click", () => { playRound(getComputerChoice(), "Rock") });
+            paper.addEventListener("click", () => { playRound(getComputerChoice(), "Paper") });
+            scissors.addEventListener("click", () => { playRound(getComputerChoice(), "Scissors") });
 
             document.body.style.textAlign = "center";
         
@@ -46,7 +46,7 @@
                 }
             }
         
-            function getRoundWinner(computerSelection, playerSelection) {
+            function playRound(computerSelection, playerSelection) {
                 displayChoices.textContent = "The Computer chose '" + computerSelection +
                 "' and " + "the Player chose '" + playerSelection + "'";
 
