@@ -21,7 +21,6 @@
             rock.textContent = "Rock";
             paper.textContent = "Paper";
             scissors.textContent = "Scissors";
-            displayRound.textContent = "Round #" + currentRound;
 
 
             rock.addEventListener("click", () => { playRound(getComputerChoice(), "Rock") });
@@ -58,7 +57,7 @@
             }
             function updateRound() {
                 currentRound++;
-                displayRound.textContent = "Round #" + currentRound;
+                displayRound.textContent = "End of Round #" + currentRound;
             }
             function setWinnerText(winner) {
                 if (winner === "Draw") {
